@@ -1,0 +1,24 @@
+﻿
+@using ASP_NET_Practice_withDB.DTOs;
+@model ProductDto
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+
+
+    <div>
+        <label>SalePrice</label>
+        <input asp-for="SalePrice" />
+        <span asp-validation-for="SalePrice"></span>
+    </div>
+
+    <button type="submit">Save</button>
+</form>
+
+
+

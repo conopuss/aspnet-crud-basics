@@ -1,0 +1,27 @@
+﻿@model List<ASP_NET_Practice_withDB.DTOs.ProductDto>
+
+<h1>Products</h1>
+
+<a asp-action="Create">Create New Product</a>
+
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>
+            @product.Name —
+
+            <span><strong>Sale Price:</strong> @product.SalePrice</span>
+            <a asp-action="Update" asp-route-id="@product.Id">Edit</a>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" name="id" value="@product.Id" />
+                <button type="submit">Delete</button>
+            </form>
+
+        </li>
+    }
+</ul>
+
+<a asp-action="Order">Products in Order</a>
+
+

@@ -1,0 +1,37 @@
+﻿@model ASP_NET_Practice_withDB.ViewModel.ProductModelView
+
+
+<h1>Most Expensive Product</h1>
+
+    <p>
+        <strong>Most Expensive:</strong>
+        @Model.MostExpensive.Name ,
+        Sale Price - @Model.MostExpensive.SalePrice
+    </p>
+
+<h2>Expensive Products</h2>
+<ul>
+
+    @foreach (var product in Model.ExpensiveProducts)
+    {
+        <li>
+
+            @product.Name — @product.SalePrice
+        </li>
+    }
+</ul>
+
+<h2>Products Order by Price </h2>
+<ul>
+
+    @foreach (var product in Model.OrderProducts)
+    {
+        <li>
+
+            @product.Name — @product.SalePrice
+        </li>
+    }
+</ul>
+<p><strong>Total:</strong> @Model.ProductCount  Products </p>
+
+<a asp-action="Index">Go back to main page</a>

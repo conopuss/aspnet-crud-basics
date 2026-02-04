@@ -1,0 +1,19 @@
+﻿@using ASP_NET_Practice_withDB.DTOs
+@model ProductDto
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+    </div>
+
+
+    <div>
+        <label>Sale Price</label>
+        <input asp-for="SalePrice" />
+    </div>
+
+    <button type="submit">Update</button>
+</form>
