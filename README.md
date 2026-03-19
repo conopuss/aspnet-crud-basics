@@ -94,6 +94,8 @@ dotnet run
 4. After the application starts, check the console output for the URL:
 
 Example: Now listening on: http://localhost:5044
+
+
 5. Open the displayed URL in your browser.
 
 The application will run with a ready-to-use SQLite database.
