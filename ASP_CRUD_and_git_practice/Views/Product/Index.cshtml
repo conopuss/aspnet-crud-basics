@@ -1,0 +1,69 @@
+﻿@model List<ASP_CRUD_and_git_practice.DTOs.ProductDto>
+
+<h1>Products</h1>
+
+<a asp-action="Create">Create New Product</a>
+
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>
+            @product.Name —
+
+            <span><strong>Sale Price:</strong> @product.SalePrice</span>
+            <a asp-action="Update" asp-route-id="@product.Id">Edit</a>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" name="id" value="@product.Id" />
+                <button type="submit">Delete</button>
+            </form>
+
+            <button onclick="updateProduct(@product.Id)">Update(API)</button>
+            <button onclick="deleteProduct(@product.Id)">Delete(API)</button>
+
+        </li>
+    }
+</ul>
+<a asp-action="Order">Products in order</a>
+
+<form id="productForm">
+    <input id="name" placeholder="Name" />
+    <input id="price" placeholder="Sale Price"/>
+    <button type="submit">Add</button>
+</form>
+
+<script>
+    //CREATE
+    document.getElementById("productForm").addEventListener("submit", e=> {
+        e.preventDefault();
+        fetch("api/products", {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({
+                name: document.getElementById("name").value,
+                salePrice: document.getElementById("price").value
+            })
+        }).then(()=> location.reload());
+    });
+
+    //UPDATE
+    function updateProduct(id) {
+        fetch(`/api/products/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: document.getElementById("name").value,
+                salePrice: document.getElementById("price").value
+            })
+        }).then(() => location.reload());
+    }
+
+
+    //DELETE
+    function deleteProduct(id) {
+        fetch(`/api/products/${id}`, {
+            method: "DELETE"
+        }).then(()=> location.reload());
+    }
+
+</script>
