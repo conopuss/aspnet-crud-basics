@@ -83,7 +83,7 @@ This structure promotes separation of concerns, maintainability, and testability
 2. Navigate to the project directory (the folder containing the `.csproj` file):
 
 ```bash
-cd ASP_CRUD_and_git_practice
+cd aspnet-crud-basics/ASP_CRUD_and_git_practice
 
 3. Run:
 
